@@ -1,0 +1,14 @@
+###Template Engines##
+It helps us in generating dynamic html content by combining HTML Templats with data from
+there are various template engines like (hbs,ejs,pug)
+To use template engine we first have to create a view folder in a dir 
+then in that we have to make a index.(hbs/ejs/pug)
+and copy the dynamic html we want to serve on our website.
+In node application we simply create a template engine and then
+app.set("view engine", "ejs/hbs/pug")
+app.get("",(req,res) => {
+    res.render("index")
+});
+
+
+
