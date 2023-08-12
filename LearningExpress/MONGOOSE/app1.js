@@ -85,6 +85,7 @@ const getDocument = async()=>{
     const result = await Playlist
     .find({$or:[{ctype:"Front"},{Author:"Facook"}]})
     .countDocuments()
+    .sort({name:1}) // 1 for ascending order and -1 for descending order
     console.log(result);
 }
 
