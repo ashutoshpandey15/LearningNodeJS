@@ -75,6 +75,11 @@ catch(err){
 //     const result = await Playlist.find({ctype:{$in:["back End","Database"]}})
 //     console.log(result);
 // }
+// For Logical Operators like or/and/nor 
+// const getDocument = async()=>{
+//     const result = await Playlist.find({$or:[{ctype:"Front"},{Author:"Facook"}]})
+//     console.log(result);
+// }
 const getDocument = async()=>{
     const result = await Playlist.find({$or:[{ctype:"Front"},{Author:"Facook"}]})
     console.log(result);
