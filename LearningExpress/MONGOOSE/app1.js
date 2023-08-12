@@ -80,8 +80,11 @@ catch(err){
 //     const result = await Playlist.find({$or:[{ctype:"Front"},{Author:"Facook"}]})
 //     console.log(result);
 // }
+// Now to Count and Sort the Documents We can use .countDocument() and .sort() method
 const getDocument = async()=>{
-    const result = await Playlist.find({$or:[{ctype:"Front"},{Author:"Facook"}]})
+    const result = await Playlist
+    .find({$or:[{ctype:"Front"},{Author:"Facook"}]})
+    .countDocuments()
     console.log(result);
 }
 
