@@ -64,9 +64,14 @@ catch(err){
 }
 }
 // createDocument();
+// To get the documents whos video count is more than 0
+// const getDocument = async()=>{
+//     const result = await Playlist.find({videos:{$gt:0}})
+//     console.log(result);
+// }
 
 const getDocument = async()=>{
-    const result = await Playlist.find({videos:{$gt:0}})
+    const result = await Playlist.find({ctype:{$in:["back End","Database"]}})
     console.log(result);
 }
 
