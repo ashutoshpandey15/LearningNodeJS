@@ -1,6 +1,6 @@
 // localhost db connection
 const mongoose = require('mongoose')
-
+const validator = require('validator')
 
 mongoose.connect("mongodb://127.0.0.1:27017/Test1",{useNewUrlParser:true,useUnifiedTopology:true}) //returns  a promise
 .then(()=>console.log("connection successful"))
@@ -17,6 +17,14 @@ mongoose.connect("mongodb://127.0.0.1:27017/Test1",{useNewUrlParser:true,useUnif
     Author: String,
     Age: Number,
     videos: Number,
+    Email :{
+        type:String,
+        validator(value){
+            if(!validator.isEmail(value)){
+                throw new Error("Invalid Email")
+            }
+        }
+    },
     Date:{
         type:Date,
         default:Date.now
@@ -40,6 +48,7 @@ const createDocument = async()=>{
             ctype:"back End",
             videos:56,
             Author:"zuckerberg",
+            Email:"yiu@jojsnbd.com", // wrong email
             active:false,
     })
     const excelPlaylist = new Playlist({   
@@ -145,7 +154,7 @@ catch(err){
             // 	type:Number,
             // 	validate(value){
             // 	if(value<0){
-            // 	throw new Error('')
+            // 	throw new Error('Videos should not be negative')
 // }
 // }
 // }
@@ -154,5 +163,7 @@ catch(err){
 //         default:Date.now
 //     }
 // })
+
+
 
 
