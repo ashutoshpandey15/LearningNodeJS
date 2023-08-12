@@ -16,6 +16,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/Test1",{useNewUrlParser:true,useUnif
     name: String,
     Author: String,
     Age: Number,
+    videos: Number,
     Date:{
         type:Date,
         default:Date.now
@@ -62,6 +63,12 @@ catch(err){
     console.log(err);
 }
 }
-createDocument();
+// createDocument();
 
+const getDocument = async()=>{
+    const result = await Playlist.find({videos:{$gt:0}})
+    console.log(result);
+}
+
+getDocument();
 
