@@ -81,14 +81,27 @@ catch(err){
 //     console.log(result);
 // }
 // Now to Count and Sort the Documents We can use .countDocument() and .sort() method
-const getDocument = async()=>{
-    const result = await Playlist
-    .find({})
-    .countDocuments()
-    .sort({name:1}) // 1 for ascending order and -1 for descending order
-    console.log(result);
+// const getDocument = async()=>{
+//     const result = await Playlist
+//     .find({})
+//     .countDocuments()
+//     .sort({name:1}) // 1 for ascending order and -1 for descending order
+//     console.log(result);
+// }
+// getDocument();
+
+const updateDocument = async(_id)=>{
+    try{
+        const result=  await Playlist.updateOne({_id},{
+            $set:{
+                name: "MongoDB"
+            }
+      })
+      console.log(result);
+    }catch(err){
+        console.log(err);
+    }
 }
 
-
-getDocument();
+updateDocument('64d7c66c9aa08ff4addbd8b2');
 
