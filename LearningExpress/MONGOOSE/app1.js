@@ -70,10 +70,16 @@ catch(err){
 //     console.log(result);
 // }
 
+// TO match the arrays
+// const getDocument = async()=>{
+//     const result = await Playlist.find({ctype:{$in:["back End","Database"]}})
+//     console.log(result);
+// }
 const getDocument = async()=>{
-    const result = await Playlist.find({ctype:{$in:["back End","Database"]}})
+    const result = await Playlist.find({$or:[{ctype:"Front"},{Author:"Facook"}]})
     console.log(result);
 }
+
 
 getDocument();
 
