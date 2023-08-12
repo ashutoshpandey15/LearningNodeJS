@@ -90,18 +90,69 @@ catch(err){
 // }
 // getDocument();
 
-const updateDocument = async(_id)=>{
-    try{
-        const result=  await Playlist.updateOne({_id},{
-            $set:{
-                name: "MongoDB"
-            }
-      })
-      console.log(result);
-    }catch(err){
-        console.log(err);
-    }
-}
 
-updateDocument('64d7c66c9aa08ff4addbd8b2');
+
+// Updating the Document
+// const updateDocument = async(_id)=>{
+//     try{
+//         const result=  await Playlist.updateOne({_id},{
+//             $set:{
+//                 name: "MongoDB"
+//             }
+//       })
+//       console.log(result);
+//     }catch(err){
+//         console.log(err);
+//     }
+// }
+
+// updateDocument('64d7c66c9aa08ff4addbd8b2');
+
+//Deleting the Document
+
+
+
+// deleteDocument = async(_id)=>{
+//     try{
+//         const result = await Playlist.deleteOne({_id});
+//         console.log(result);
+//     }catch(err){
+//         console.log(err);
+//     }
+// }
+
+// deleteDocument('64d7c66c9aa08ff4addbd8b2');
+
+
+// Validation 
+// 1. Inbuilt Validation
+// const playlistSchema =new mongoose.Schema({
+//     name:{
+//         type:String, 
+//         required:true,
+//         trim:true,
+//         minlength:[2,"Minimum 2 letters are required"],
+// },
+//     Author: String,
+//     Age: Number,
+//     ctype: {
+//         type:String,
+//         enum:["Front End","Back End","Database"]
+// },
+
+//Custom validation
+//       videos: {
+            // 	type:Number,
+            // 	validate(value){
+            // 	if(value<0){
+            // 	throw new Error('')
+// }
+// }
+// }
+//     Date:{
+//         type:Date,
+//         default:Date.now
+//     }
+// })
+
 
