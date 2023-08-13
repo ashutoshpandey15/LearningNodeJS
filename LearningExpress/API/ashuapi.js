@@ -1,6 +1,9 @@
+require("dotenv").config();
+// to require the dotenv file
 const express = require('express')
 const app = express();
 const connectDb = require("./db/connect");
+
 
 //jinko bhi route kiya tha unko idhar require kar rahe hai
 const product_routes =require("./routes/products");
@@ -18,7 +21,7 @@ app.use("/api/products",product_routes)
 
 
 app.listen(8000,"127.0.0.1",async()=>{
-    await connectDb();
+    await connectDb(process.env.MONGODB_URL);
     console.log("listening on port")
 });
 
